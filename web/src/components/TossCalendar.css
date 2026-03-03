@@ -1,0 +1,218 @@
+.toss-calendar-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.toss-calendar {
+  background: #ffffff;
+  border: 1px solid #e5e8eb;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 600px;
+  width: 100%;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  overflow: hidden;
+}
+
+.toss-calendar-inner {
+  will-change: transform;
+}
+
+.toss-calendar:active {
+  cursor: grabbing;
+}
+
+.toss-calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.toss-calendar-nav {
+  background: #f7f8fa;
+  border: 1px solid #e5e8eb;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #4e5968;
+  transition: all 0.2s ease;
+}
+
+.toss-calendar-nav:hover {
+  background: #e5e8eb;
+  color: #191f28;
+}
+
+.toss-calendar-month {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #191f28;
+}
+
+.toss-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.toss-calendar-weekday {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #8b95a1;
+  padding: 12px 0;
+}
+
+.toss-calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9375rem;
+  color: #191f28;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.toss-calendar-day.empty {
+  cursor: default;
+  pointer-events: none;
+}
+
+.toss-calendar-day:hover:not(.empty) {
+  background: #f0f4ff;
+  color: #3182f6;
+  transform: scale(1.05);
+  font-weight: 700;
+}
+
+.toss-calendar-day.today {
+  background: #3182f6;
+  color: #fff;
+  font-weight: 700;
+}
+
+.toss-calendar-day.today:hover {
+  background: #1e6dd9;
+  color: #fff;
+}
+
+.toss-calendar-day.selected:not(.today) {
+  background: #e8f0fe;
+  color: #3182f6;
+  font-weight: 700;
+}
+
+/* 모달 */
+.toss-calendar-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh 5vw;
+  background: rgba(25, 31, 40, 0.5);
+  backdrop-filter: blur(4px);
+  animation: toss-modal-fadeIn 0.2s ease-out;
+}
+
+@keyframes toss-modal-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.toss-calendar-modal {
+  width: 90%;
+  height: 90%;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: toss-modal-scaleIn 0.25s ease-out;
+}
+
+@keyframes toss-modal-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.toss-calendar-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(16px, 4vh, 24px) clamp(20px, 5vw, 32px);
+  border-bottom: 1px solid #e5e8eb;
+  flex-shrink: 0;
+}
+
+.toss-calendar-modal-title {
+  margin: 0;
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: #191f28;
+}
+
+.toss-calendar-modal-close {
+  width: clamp(40px, 8vw, 48px);
+  height: clamp(40px, 8vw, 48px);
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  background: #f7f8fa;
+  color: #4e5968;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.toss-calendar-modal-close:hover {
+  background: #e5e8eb;
+  color: #191f28;
+}
+
+.toss-calendar-modal-body {
+  flex: 1;
+  overflow: auto;
+  padding: clamp(20px, 5vh, 32px) clamp(20px, 5vw, 32px);
+}
+
+.toss-calendar-modal-date-label {
+  margin: 0 0 8px 0;
+  font-size: 0.875rem;
+  color: #8b95a1;
+  font-weight: 500;
+}
+
+.toss-calendar-modal-date-value {
+  margin: 0;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 700;
+  color: #191f28;
+}

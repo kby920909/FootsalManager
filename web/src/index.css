@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
+  background: #f7f8fa;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  background: #fff;
+}
+
+.toss-header {
+  background: #fff;
+  border-bottom: 1px solid #e5e8eb;
+  padding: 16px 24px;
+}
+
+.toss-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toss-logo-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.toss-logo-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #191f28;
+  letter-spacing: -0.5px;
+}
+
+.toss-logo-subtitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #8b95a1;
+}
+
+.toss-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.toss-section {
+  margin-bottom: 32px;
+}
+
+.toss-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #191f28;
+  margin: 0 0 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toss-section-icon {
+  font-size: 1.25rem;
+}
+
+.toss-section-subtitle {
+  font-size: 0.9375rem;
+  color: #8b95a1;
+  margin: 0 0 24px 0;
+  font-weight: 500;
+}
