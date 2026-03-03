@@ -153,6 +153,15 @@ export function TossCalendar() {
         selectedDate.getMonth() === month &&
         selectedDate.getDate() === day
       : false;
+  const hasContentForDay = (day: number) => {
+    const d = new Date(year, month, day);
+    // 2026년 3월 4일에만 컨텐츠가 있음
+    return (
+      d.getFullYear() === 2026 &&
+      d.getMonth() === 2 && // 0=1월, 2=3월
+      d.getDate() === 4
+    );
+  };
 
   const isSpecialMatch =
     selectedDate &&
@@ -202,9 +211,11 @@ export function TossCalendar() {
               <button
                 key={`d-${cell.day}`}
                 type="button"
-                className={`toss-calendar-day ${isToday(cell.day!) ? 'today' : ''} ${
-                  isSelected(cell.day!) ? 'selected' : ''
-                }`}
+                className={`toss-calendar-day
+                  ${isToday(cell.day!) ? 'today' : ''}
+                  ${isSelected(cell.day!) ? 'selected' : ''}
+                  ${hasContentForDay(cell.day!) ? 'has-content' : ''}
+                `}
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedDate(new Date(year, month, cell.day!));

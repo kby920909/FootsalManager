@@ -253,3 +253,9 @@
   transform: translateY(-1px);
   box-shadow: 0 12px 22px rgba(49, 130, 246, 0.4);
 }
+
+/* 모달 내용이 있는 날짜 하이라이트 */
+.toss-calendar-day.has-content:not(.today) {
+  border: 5px solid #f6b131;
+  box-shadow: 0 0 0 2px rgba(49, 130, 246, 0.15);
+}
