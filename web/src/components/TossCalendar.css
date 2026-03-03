@@ -216,3 +216,40 @@
   font-weight: 700;
   color: #191f28;
 }
+.toss-calendar-modal-match {
+  margin-top: 24px;
+}
+
+.toss-calendar-modal-match-title {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #191f28;
+}
+
+.toss-calendar-modal-match-venue {
+  margin: 0 0 16px 0;
+  font-size: 0.9375rem;
+  color: #4e5968;
+}
+
+.toss-calendar-modal-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #3182f6;
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 18px rgba(49, 130, 246, 0.35);
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.toss-calendar-modal-cta:hover {
+  background: #1e6dd9;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(49, 130, 246, 0.4);
+}

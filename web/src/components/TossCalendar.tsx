@@ -154,6 +154,12 @@ export function TossCalendar() {
         selectedDate.getDate() === day
       : false;
 
+  const isSpecialMatch =
+    selectedDate &&
+    selectedDate.getFullYear() === 2026 &&
+    selectedDate.getMonth() === 2 && // 0=1월, 2=3월
+    selectedDate.getDate() === 4;
+
   const closeModal = useCallback(() => setSelectedDate(null), []);
 
   const formatModalDate = (d: Date) =>
@@ -237,8 +243,24 @@ export function TossCalendar() {
             </button>
           </div>
           <div className="toss-calendar-modal-body">
-            <p className="toss-calendar-modal-date-label">선택한 날짜</p>
-            <p className="toss-calendar-modal-date-value">{formatModalDate(selectedDate)}</p>
+            {isSpecialMatch && (
+              <div className="toss-calendar-modal-match">
+                <p className="toss-calendar-modal-match-title">
+                  3월 4일 수요일 21:00
+                </p>
+                <p className="toss-calendar-modal-match-venue">
+                  서울 지니 풋살파크 중화점 실내구장
+                </p>
+                <a
+                  href="https://www.plabfootball.com/match/807784/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="toss-calendar-modal-cta"
+                >
+                  신청 바로가기
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
